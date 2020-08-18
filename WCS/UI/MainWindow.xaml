@@ -1,0 +1,26 @@
+﻿<Window x:Class="WCS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WCS"
+        mc:Ignorable="d"
+        Title="Warehouse Control System Produced By Baokai(Shanghai) Intelligent Logistics Technology Co.,Ltd" Height="500" Width="1200">
+    <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
+        <MenuItem Header="开始">
+            <MenuItem Header="New" IsCheckable="True"/>
+        </MenuItem>
+        <MenuItem Header="工具(T)">
+            <MenuItem Header="设置" IsCheckable="True"/>
+            <MenuItem Header="选项" IsCheckable="True"/>
+            
+        </MenuItem>
+        <MenuItem Header="帮助(H)">
+            <MenuItem Header="查看帮助" IsCheckable="True"/>
+            <MenuItem Header="发送反馈" IsCheckable="True"/>
+            <MenuItem Header="注册产品" IsCheckable="True"/>
+            <MenuItem Header="检查更新" IsCheckable="True"/>
+            <MenuItem Header="关于我们" IsCheckable="True"/>
+        </MenuItem>
+    </Menu>
+</Window>
