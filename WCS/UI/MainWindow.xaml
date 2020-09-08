@@ -5,15 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WCS"
         mc:Ignorable="d"
-        Title="Warehouse Control System Produced By Baokai(Shanghai) Intelligent Logistics Technology Co.,Ltd" Height="500" Width="1200">
+        Title="Warehouse Control System Produced By Baokai(Shanghai) Intelligent Logistics Technology Co.,Ltd" 
+        Height="500" 
+        Width="1200">
     <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
-        <MenuItem Header="开始">
-            <MenuItem Header="New" IsCheckable="True"/>
+        <MenuItem Header="管理">
+            <MenuItem Header="用户管理" Name="Mi_UserManager" IsCheckable="True" Tag="1" Click="ClickEvent" />
+            <MenuItem Header="商品信息管理" IsCheckable="True"/>
+        </MenuItem>
+        <MenuItem Header="调试">
+            <MenuItem Name="Mi_TableManager" Header="表管理" IsCheckable="True"/>
+            <MenuItem Name="Mi_DataManager" Header="基础数据管理" IsCheckable="True"/>
+        </MenuItem>
+        <MenuItem Header="测试">
+            <MenuItem Header="模拟测试" IsCheckable="True"/>
         </MenuItem>
         <MenuItem Header="工具(T)">
             <MenuItem Header="设置" IsCheckable="True"/>
             <MenuItem Header="选项" IsCheckable="True"/>
-            
+        </MenuItem>
+        <MenuItem Header="窗口(W)">
+            <MenuItem Header="设置" IsCheckable="True"/>
+            <MenuItem Header="选项" IsCheckable="True"/>
         </MenuItem>
         <MenuItem Header="帮助(H)">
             <MenuItem Header="查看帮助" IsCheckable="True"/>

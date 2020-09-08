@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace WCS
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// PlcWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PlcWindow : Window
     {
-        FtpFileListener _ftpFileListener;
-        public MainWindow()
+        public PlcWindow()
         {
             InitializeComponent();
-            _ftpFileListener = new FtpFileListener(@"C:\Users\ZZH\Desktop\新建文件夹");
-        }
-
-        private void ClickEvent(object sender, RoutedEventArgs e)
-        {
-            //验证功能权限
         }
     }
 }

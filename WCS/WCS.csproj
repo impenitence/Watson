@@ -38,9 +38,35 @@
     <ApplicationIcon>Resources\Baokai.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Excel, Version=1.5.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\Debug\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="opcrcw.comn, Version=1.10.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\opcrcw.comn.dll</HintPath>
+    </Reference>
+    <Reference Include="opcrcw.da, Version=3.0.3.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\opcrcw.da.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,24 +85,63 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="UI\LogWindow.xaml">
+    <Compile Include="INF\FtpFileListener.cs" />
+    <Compile Include="FTPClient.cs" />
+    <Compile Include="DAL\Database\IDBHelper.cs" />
+    <Compile Include="DAL\Database\DBHelper.cs" />
+    <Compile Include="BLL\Device\OPCDaHelper.cs" />
+    <Compile Include="INF\WCF\IService.cs" />
+    <Compile Include="INF\WCF\Service.cs" />
+    <Compile Include="Utility\FileHelper.cs" />
+    <Compile Include="Utility\HttpHelper.cs" />
+    <Compile Include="Utility\Log\Log.cs" />
+    <Compile Include="UI\PathInfo.cs" />
+    <Compile Include="BLL\User.cs" />
+    <Compile Include="Utility\AppConfigHelper.cs" />
+    <Compile Include="BLL\ValidityCheck.cs" />
+    <Compile Include="UI\Visualization\VisualPath.cs" />
+    <Compile Include="INF\WCF\WcfHelper.cs" />
+    <Page Include="UI\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="UI\ConveyerWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PlcWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UI\LogWindow.xaml.cs">
-      <DependentUpon>LogWindow.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="BLL\Device\Conveyer.cs" />
+    <Compile Include="UI\Visualization\IVisualObject.cs" />
+    <Compile Include="BLL\IPrivilege.cs" />
     <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\ConveyerWindow.xaml.cs">
+      <DependentUpon>ConveyerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\Device\DeviceBase.cs" />
+    <Compile Include="BLL\PlcSite.cs" />
+    <Compile Include="UI\PlcWindow.xaml.cs">
+      <DependentUpon>PlcWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\Crypto.cs" />
+    <Compile Include="DAL\Database\DbManagerFactory.cs" />
+    <Compile Include="BLL\DbInf.cs" />
+    <Compile Include="Utility\transmission\Opc\Da\OpcDaConnection.cs" />
+    <Compile Include="Utility\ThreadManager.cs" />
+    <Compile Include="UI\LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -111,10 +176,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LogImage.jpg" />
+    <None Include="Resources\LogImage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\qq.png" />
+    <None Include="Resources\qq.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="INF\WebApi\" />
+    <Folder Include="Utility\transmission\Opc\Ua\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_setting.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,7 +11,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        MouseLeftButtonDown ="Window_MouseLeftButtonDown"  >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200">
@@ -20,7 +21,23 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Height="200">
-            <Grid Margin="80" Height="100">
+            <Grid Margin="385,0,0,0">
+                <Grid.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="pack://siteoforigin:,,,/Resources/log_setting.png"></Image>
+                <Image Grid.Column="1" Source="pack://siteoforigin:,,,/Resources/log_setting.png"></Image>
+                <Image Grid.Column="2" Source="pack://siteoforigin:,,,/Resources/log_setting.png"></Image>
+            </Grid>
+            <Grid Margin="80,70" Height="100">
                 <Grid.Background>
                     <SolidColorBrush Opacity="0"/>
                 </Grid.Background>
@@ -41,7 +58,7 @@
                 <CheckBox Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" Margin="10,0,0,0" Name="Ckb_User">记住账号</CheckBox>
             </Grid>
         </StackPanel>
-        <Button Grid.Row="1" Width="180" Height="40" HorizontalAlignment="Center" Background="White" Name="login" Content="登       录" FontSize="14"></Button>
+        <Button Grid.Row="1" Width="180" Height="40" HorizontalAlignment="Center" Background="White" Name="Btn_LogIn" Content="登       录" FontSize="14" Click="ClickEvent"></Button>
         <Grid.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/LogImage.jpg"></ImageBrush>
         </Grid.Background>
